@@ -1,0 +1,54 @@
+# Raspberry Pi Desktop Assistant Configuration
+
+# System
+system:
+  name: "RaspiDesktopAssistant V0.0.0"
+  log_level: "INFO" # DEBUG, INFO, WARNING, ERROR
+  storage_path: "./logs"
+
+# LLM
+llm:
+  enable: true
+  cloud_api:
+    api_key: "your-api-key-here"
+    base_url: "https://api.llm-provider.com/v1/chat/completions"
+    model: "deepseek-chat"
+  local:
+    enable: false
+    model_path: "./models/local_llm"
+    device: "cpu" 
+  parameters:
+    max_tokens: 4096
+    temperature: 1.0
+    top_p: 1
+    frequency_penalty: 0.0
+    presence_penalty: 0.0
+    stream: false
+    max_turns: 42
+    init_prompt: "You are a helpful assistant. Please answer the user's questions in a friendly and informative manner."
+
+# Vision
+vision:
+  enable: false
+  camera:
+    backend: "pi" # pi (picamera2) or opencv
+    resolution: [640, 480]
+    framerate: 30
+
+# Speech
+speech:
+  hot_word: "hey robot"
+  language: "zh-CN"
+
+  asr:
+    enable: false
+
+  tts:
+    enable: false
+
+  svs:
+    enable: false
+
+# Action
+action:
+  enable: false
